@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+body {
+    font-family: 'Indie Flower', cursive;
+    background-color: #242943;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.playbutton {
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.playbutton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.right-corner {
+    display:flex;
+    flex-direction: column;
+    background-color: #2E355F;
+    color: #DDDDB3;
+    font-size: 3rem;
+    padding: 20px;
+    font-family: 'Indie Flower', cursive;
+    max-width: 30%;
+    margin: auto;
+    text-align: center;
+}
+
+.right-corner h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.right-corner p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#result {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 10px;
+}
+

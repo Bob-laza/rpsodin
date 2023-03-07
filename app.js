@@ -1,35 +1,55 @@
+const rockButton = document.getElementById("btn1");
+const paperButton = document.getElementById("btn2");
+const scissorsButton = document.getElementById("btn3");
 
-for (i = 0; i <= 5; i++){
+rockButton.addEventListener("click", () => {
+    playGame(1);
+});
 
-const userPromptChoice = prompt('Type rock, paper or scissors');
-const computerChoice = Math.floor(Math.random() * 3 + 1); // 1 to 3
+paperButton.addEventListener("click", () => {
+    playGame(2);
+});
 
-function promptToNum(prompt){
-    if (prompt === "rock") { return 1 }
-    if (prompt === "paper"){return 2}
-    if (prompt === "scissors") { return 3 }
-}
+scissorsButton.addEventListener("click", () => {
+    playGame(3);
+});
 
+function playGame(userChoice) {
+    const computerChoice = Math.floor(Math.random() * 3) + 1;
+    let didPLayerWon = false;
 
-const userChoiceNum = promptToNum(userPromptChoice.toLowerCase()); //é pra funcionar essa porra
-
-// abaixo os jogos dos numeros, 2 ganha do 1 etc...
-
-function play(){
-    if (userChoiceNum == computerChoice){
-        return console.log("It's a tie");
-    }else if(
-        userChoiceNum === 1 && computerChoice == 3 ||
-        userChoiceNum === 2 && computerChoice == 1 ||
-        userChoiceNum === 3 && computerChoice == 2)
-        return console.log("You win!");
-    else{
-        return console.log("You lose!");
+    let result;
+    if (userChoice === computerChoice) {
+        result = "It's a tie!";
+        didPLayerWon = 3;
+    } else if (userChoice === 1 && computerChoice === 3 || userChoice === 2 && computerChoice === 1 || userChoice === 3 && computerChoice === 2) {
+        result = "You win!";
+        didPLayerWon = true;
+    } else {
+        result = "Computer wins!";
+        didPLayerWon = false;
     }
+
+    const resultDiv = document.getElementById("result");
+
+    if(didPLayerWon === true){
+        resultDiv.innerHTML = `<div id="result">You chose <span style="color: #9DF519">${getChoiceString(userChoice)}.</span> Computer chose <span style="color: #F14A8D">${getChoiceString(computerChoice)}.</span> ${result}🎆</div>`;
+    }else if(didPLayerWon === false){
+        resultDiv.innerHTML = `<div id="result">You chose <span style="color: #F14A8D">${getChoiceString(userChoice)}.</span> Computer chose <span style="color: #9DF519"">${getChoiceString(computerChoice)}.</span> ${result}</div>`;
+    }else{
+        resultDiv.innerHTML = `<div id="result">You chose <span style="color: #F14A8D">${getChoiceString(userChoice)}.</span> Computer chose <span style="color: #9DF519"">${getChoiceString(computerChoice)}.</span> ${result}</div>`;
+
+    }
+   
 }
 
-play()
-
-console.log(computerChoice);
-console.log(userChoiceNum);
+function getChoiceString(choice) {
+    switch (choice) {
+        case 1:
+            return "rock";
+        case 2:
+            return "paper";
+        case 3:
+            return "scissors";
+    }
 }
